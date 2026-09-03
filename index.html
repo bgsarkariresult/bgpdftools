@@ -10,14 +10,12 @@
   <meta name="author" content="BG PDF Tools">
   <link rel="canonical" href="https://yourdomain.com/">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="BG PDF Tools — Free Online PDF Editor">
   <meta property="og:description" content="Merge, split, compress, convert and protect PDFs privately in your browser. No uploads, no registration.">
   <meta property="og:url" content="https://yourdomain.com/">
   <meta property="og:site_name" content="BG PDF Tools">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BG PDF Tools — Free Online PDF Editor">
   <meta name="twitter:description" content="All PDF tools you need. 100% private, works offline after load.">
@@ -59,7 +57,6 @@
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; }
 
-    /* Header */
     header {
       background: var(--card);
       border-bottom: 1px solid var(--border);
@@ -113,7 +110,6 @@
       justify-content: center;
     }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 56px 20px 40px;
@@ -151,7 +147,6 @@
     }
     .badge strong { color: var(--success); }
 
-    /* Container */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -164,9 +159,6 @@
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
     .tools-grid {
       display: grid;
@@ -209,7 +201,6 @@
       color: var(--muted);
     }
 
-    /* Workspace */
     .workspace {
       display: none;
       max-width: 720px;
@@ -225,9 +216,6 @@
       cursor: pointer;
       margin-bottom: 22px;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
     .panel-title {
       font-size: 1.7rem;
@@ -355,7 +343,6 @@
       white-space: nowrap;
     }
 
-    /* Extra sections for SEO */
     .seo-section {
       max-width: 900px;
       margin: 0 auto 60px;
@@ -417,7 +404,6 @@
       font-size: 0.9rem;
       border-top: 1px solid var(--border);
     }
-    footer a { color: var(--primary); font-weight: 500; }
 
     @media (max-width: 600px) {
       .privacy { display: none; }
@@ -426,7 +412,6 @@
     }
   </style>
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -440,8 +425,7 @@
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
-    },
-    "featureList": ["Merge PDF", "Split PDF", "Compress PDF", "Rotate PDF", "Add Watermark", "Add Page Numbers", "Images to PDF", "PDF to JPG", "Extract Text", "Protect PDF"]
+    }
   }
   </script>
 </head>
@@ -488,7 +472,6 @@
     </div>
   </div>
 
-  <!-- How it works (SEO content) -->
   <section class="seo-section" id="how">
     <h2>How it works</h2>
     <div class="steps">
@@ -510,7 +493,6 @@
     </div>
   </section>
 
-  <!-- FAQ for SEO -->
   <section class="seo-section faq">
     <h2>Frequently Asked Questions</h2>
     <details>
@@ -531,236 +513,407 @@
     </details>
   </section>
 
-  <!-- Workspaces -->
+  <!-- ==================== WORKSPACES ==================== -->
+
+  <!-- ORGANIZE -->
   <div class="workspace" id="ws-merge">
     <button class="back-btn" onclick="goHome()">← All tools</button>
     <h2 class="panel-title">Merge PDF</h2>
     <p class="panel-desc">Combine multiple PDF files into one single document.</p>
-    <div class="dropzone" id="dz-merge">
-      <p>Select PDF files or drop them here</p>
-      <div class="hint">You can select multiple files</div>
-      <input type="file" id="in-merge" accept="application/pdf" multiple>
-    </div>
+    <div class="dropzone" id="dz-merge"><p>Select PDF files or drop them here</p><div class="hint">You can select multiple files</div><input type="file" id="in-merge" accept="application/pdf" multiple></div>
     <ul class="file-list" id="list-merge"></ul>
     <button class="action-btn" id="btn-merge" disabled>Merge PDF</button>
     <div class="status" id="st-merge"></div>
-    <div class="result" id="res-merge">
-      <span>Your merged PDF is ready</span>
-      <a class="download-btn" id="dl-merge" download="merged.pdf">Download</a>
-    </div>
+    <div class="result" id="res-merge"><span>Your merged PDF is ready</span><a class="download-btn" id="dl-merge" download="merged.pdf">Download</a></div>
   </div>
 
   <div class="workspace" id="ws-split">
     <button class="back-btn" onclick="goHome()">← All tools</button>
     <h2 class="panel-title">Split PDF</h2>
     <p class="panel-desc">Extract specific pages or split every page into separate files.</p>
-    <div class="dropzone" id="dz-split">
-      <p>Select a PDF file</p>
-      <div class="hint">One file only</div>
-      <input type="file" id="in-split" accept="application/pdf">
-    </div>
+    <div class="dropzone" id="dz-split"><p>Select a PDF file</p><div class="hint">One file only</div><input type="file" id="in-split" accept="application/pdf"></div>
     <ul class="file-list" id="list-split"></ul>
     <div class="options">
-      <div class="option">
-        <label>Mode</label>
-        <select id="split-mode">
-          <option value="range">Extract page range</option>
-          <option value="each">Every page as separate PDF</option>
-        </select>
-      </div>
-      <div class="option" id="range-box">
-        <label>Page range (e.g. 1-3)</label>
-        <input type="text" id="split-range" placeholder="1-3">
-      </div>
+      <div class="option"><label>Mode</label><select id="split-mode"><option value="range">Extract page range</option><option value="each">Every page as separate PDF</option></select></div>
+      <div class="option" id="range-box"><label>Page range (e.g. 1-3)</label><input type="text" id="split-range" placeholder="1-3"></div>
     </div>
     <button class="action-btn" id="btn-split" disabled>Split PDF</button>
     <div class="status" id="st-split"></div>
-    <div class="result" id="res-split">
-      <span>Ready</span>
-      <a class="download-btn" id="dl-split" download="split.pdf">Download</a>
-    </div>
+    <div class="result" id="res-split"><span>Ready</span><a class="download-btn" id="dl-split" download="split.pdf">Download</a></div>
   </div>
 
+  <div class="workspace" id="ws-deletepages">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Delete Pages</h2>
+    <p class="panel-desc">Remove specific pages from your PDF.</p>
+    <div class="dropzone" id="dz-deletepages"><p>Select a PDF file</p><input type="file" id="in-deletepages" accept="application/pdf"></div>
+    <ul class="file-list" id="list-deletepages"></ul>
+    <div class="options">
+      <div class="option"><label>Pages to delete (e.g. 2,4-6)</label><input type="text" id="delete-pages" placeholder="2,4-6"></div>
+    </div>
+    <button class="action-btn" id="btn-deletepages" disabled>Delete Pages</button>
+    <div class="status" id="st-deletepages"></div>
+    <div class="result" id="res-deletepages"><span>Ready</span><a class="download-btn" id="dl-deletepages" download="deleted-pages.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-extractpages">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Extract Pages</h2>
+    <p class="panel-desc">Extract specific pages into a new PDF.</p>
+    <div class="dropzone" id="dz-extractpages"><p>Select a PDF file</p><input type="file" id="in-extractpages" accept="application/pdf"></div>
+    <ul class="file-list" id="list-extractpages"></ul>
+    <div class="options">
+      <div class="option"><label>Pages to extract (e.g. 1,3-5)</label><input type="text" id="extract-pages" placeholder="1,3-5"></div>
+    </div>
+    <button class="action-btn" id="btn-extractpages" disabled>Extract Pages</button>
+    <div class="status" id="st-extractpages"></div>
+    <div class="result" id="res-extractpages"><span>Ready</span><a class="download-btn" id="dl-extractpages" download="extracted.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-reverse">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Reverse Pages</h2>
+    <p class="panel-desc">Reverse the order of all pages in the PDF.</p>
+    <div class="dropzone" id="dz-reverse"><p>Select a PDF file</p><input type="file" id="in-reverse" accept="application/pdf"></div>
+    <ul class="file-list" id="list-reverse"></ul>
+    <button class="action-btn" id="btn-reverse" disabled>Reverse Pages</button>
+    <div class="status" id="st-reverse"></div>
+    <div class="result" id="res-reverse"><span>Ready</span><a class="download-btn" id="dl-reverse" download="reversed.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-duplicate">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Duplicate PDF</h2>
+    <p class="panel-desc">Create a copy of your PDF file.</p>
+    <div class="dropzone" id="dz-duplicate"><p>Select a PDF file</p><input type="file" id="in-duplicate" accept="application/pdf"></div>
+    <ul class="file-list" id="list-duplicate"></ul>
+    <button class="action-btn" id="btn-duplicate" disabled>Duplicate PDF</button>
+    <div class="status" id="st-duplicate"></div>
+    <div class="result" id="res-duplicate"><span>Ready</span><a class="download-btn" id="dl-duplicate" download="duplicate.pdf">Download</a></div>
+  </div>
+
+  <!-- OPTIMIZE -->
   <div class="workspace" id="ws-compress">
     <button class="back-btn" onclick="goHome()">← All tools</button>
     <h2 class="panel-title">Compress PDF</h2>
     <p class="panel-desc">Reduce PDF file size while keeping good quality.</p>
-    <div class="dropzone" id="dz-compress">
-      <p>Select a PDF file</p>
-      <input type="file" id="in-compress" accept="application/pdf">
-    </div>
+    <div class="dropzone" id="dz-compress"><p>Select a PDF file</p><input type="file" id="in-compress" accept="application/pdf"></div>
     <ul class="file-list" id="list-compress"></ul>
     <button class="action-btn" id="btn-compress" disabled>Compress PDF</button>
     <div class="status" id="st-compress"></div>
-    <div class="result" id="res-compress">
-      <span id="compress-msg">Ready</span>
-      <a class="download-btn" id="dl-compress" download="compressed.pdf">Download</a>
-    </div>
+    <div class="result" id="res-compress"><span id="compress-msg">Ready</span><a class="download-btn" id="dl-compress" download="compressed.pdf">Download</a></div>
   </div>
 
-  <div class="workspace" id="ws-rotate">
+  <div class="workspace" id="ws-grayscale">
     <button class="back-btn" onclick="goHome()">← All tools</button>
-    <h2 class="panel-title">Rotate PDF</h2>
-    <p class="panel-desc">Rotate all pages by 90°, 180° or 270°.</p>
-    <div class="dropzone" id="dz-rotate">
-      <p>Select a PDF file</p>
-      <input type="file" id="in-rotate" accept="application/pdf">
-    </div>
-    <ul class="file-list" id="list-rotate"></ul>
-    <div class="options">
-      <div class="option">
-        <label>Rotation</label>
-        <select id="rotate-angle">
-          <option value="90">90° Clockwise</option>
-          <option value="180">180°</option>
-          <option value="270">90° Counter-clockwise</option>
-        </select>
-      </div>
-    </div>
-    <button class="action-btn" id="btn-rotate" disabled>Rotate PDF</button>
-    <div class="status" id="st-rotate"></div>
-    <div class="result" id="res-rotate">
-      <span>Ready</span>
-      <a class="download-btn" id="dl-rotate" download="rotated.pdf">Download</a>
-    </div>
+    <h2 class="panel-title">Convert to Grayscale</h2>
+    <p class="panel-desc">Convert the entire PDF to black & white (grayscale).</p>
+    <div class="dropzone" id="dz-grayscale"><p>Select a PDF file</p><input type="file" id="in-grayscale" accept="application/pdf"></div>
+    <ul class="file-list" id="list-grayscale"></ul>
+    <button class="action-btn" id="btn-grayscale" disabled>Convert to Grayscale</button>
+    <div class="status" id="st-grayscale"></div>
+    <div class="result" id="res-grayscale"><span>Ready</span><a class="download-btn" id="dl-grayscale" download="grayscale.pdf">Download</a></div>
   </div>
 
-  <div class="workspace" id="ws-watermark">
+  <div class="workspace" id="ws-removemeta">
     <button class="back-btn" onclick="goHome()">← All tools</button>
-    <h2 class="panel-title">Add Watermark</h2>
-    <p class="panel-desc">Add a custom text watermark to every page.</p>
-    <div class="dropzone" id="dz-watermark">
-      <p>Select a PDF file</p>
-      <input type="file" id="in-watermark" accept="application/pdf">
-    </div>
-    <ul class="file-list" id="list-watermark"></ul>
-    <div class="options">
-      <div class="option">
-        <label>Watermark text</label>
-        <input type="text" id="wm-text" value="CONFIDENTIAL">
-      </div>
-      <div class="option">
-        <label>Font size</label>
-        <input type="number" id="wm-size" value="48" min="12" max="120">
-      </div>
-      <div class="option">
-        <label>Opacity</label>
-        <input type="number" id="wm-opacity" value="0.3" min="0.1" max="0.9" step="0.05">
-      </div>
-    </div>
-    <button class="action-btn" id="btn-watermark" disabled>Add Watermark</button>
-    <div class="status" id="st-watermark"></div>
-    <div class="result" id="res-watermark">
-      <span>Ready</span>
-      <a class="download-btn" id="dl-watermark" download="watermarked.pdf">Download</a>
-    </div>
+    <h2 class="panel-title">Remove Metadata</h2>
+    <p class="panel-desc">Remove author, title, keywords and other metadata from PDF.</p>
+    <div class="dropzone" id="dz-removemeta"><p>Select a PDF file</p><input type="file" id="in-removemeta" accept="application/pdf"></div>
+    <ul class="file-list" id="list-removemeta"></ul>
+    <button class="action-btn" id="btn-removemeta" disabled>Remove Metadata</button>
+    <div class="status" id="st-removemeta"></div>
+    <div class="result" id="res-removemeta"><span>Ready</span><a class="download-btn" id="dl-removemeta" download="no-metadata.pdf">Download</a></div>
   </div>
 
-  <div class="workspace" id="ws-pagenum">
+  <div class="workspace" id="ws-flatten">
     <button class="back-btn" onclick="goHome()">← All tools</button>
-    <h2 class="panel-title">Add Page Numbers</h2>
-    <p class="panel-desc">Insert page numbers on every page of your PDF.</p>
-    <div class="dropzone" id="dz-pagenum">
-      <p>Select a PDF file</p>
-      <input type="file" id="in-pagenum" accept="application/pdf">
-    </div>
-    <ul class="file-list" id="list-pagenum"></ul>
-    <div class="options">
-      <div class="option">
-        <label>Position</label>
-        <select id="pn-pos">
-          <option value="bc">Bottom Center</option>
-          <option value="br">Bottom Right</option>
-          <option value="bl">Bottom Left</option>
-          <option value="tc">Top Center</option>
-        </select>
-      </div>
-      <div class="option">
-        <label>Start from</label>
-        <input type="number" id="pn-start" value="1" min="0">
-      </div>
-    </div>
-    <button class="action-btn" id="btn-pagenum" disabled>Add Numbers</button>
-    <div class="status" id="st-pagenum"></div>
-    <div class="result" id="res-pagenum">
-      <span>Ready</span>
-      <a class="download-btn" id="dl-pagenum" download="numbered.pdf">Download</a>
-    </div>
+    <h2 class="panel-title">Flatten PDF</h2>
+    <p class="panel-desc">Flatten form fields and annotations into the PDF.</p>
+    <div class="dropzone" id="dz-flatten"><p>Select a PDF file</p><input type="file" id="in-flatten" accept="application/pdf"></div>
+    <ul class="file-list" id="list-flatten"></ul>
+    <button class="action-btn" id="btn-flatten" disabled>Flatten PDF</button>
+    <div class="status" id="st-flatten"></div>
+    <div class="result" id="res-flatten"><span>Ready</span><a class="download-btn" id="dl-flatten" download="flattened.pdf">Download</a></div>
   </div>
 
+  <div class="workspace" id="ws-optimize">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Optimize PDF</h2>
+    <p class="panel-desc">Optimize PDF structure for smaller size and faster loading.</p>
+    <div class="dropzone" id="dz-optimize"><p>Select a PDF file</p><input type="file" id="in-optimize" accept="application/pdf"></div>
+    <ul class="file-list" id="list-optimize"></ul>
+    <button class="action-btn" id="btn-optimize" disabled>Optimize PDF</button>
+    <div class="status" id="st-optimize"></div>
+    <div class="result" id="res-optimize"><span>Ready</span><a class="download-btn" id="dl-optimize" download="optimized.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-reduce">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Reduce Size</h2>
+    <p class="panel-desc">Aggressively reduce PDF file size (may lower quality).</p>
+    <div class="dropzone" id="dz-reduce"><p>Select a PDF file</p><input type="file" id="in-reduce" accept="application/pdf"></div>
+    <ul class="file-list" id="list-reduce"></ul>
+    <button class="action-btn" id="btn-reduce" disabled>Reduce Size</button>
+    <div class="status" id="st-reduce"></div>
+    <div class="result" id="res-reduce"><span id="reduce-msg">Ready</span><a class="download-btn" id="dl-reduce" download="reduced.pdf">Download</a></div>
+  </div>
+
+  <!-- CONVERT -->
   <div class="workspace" id="ws-img2pdf">
     <button class="back-btn" onclick="goHome()">← All tools</button>
     <h2 class="panel-title">Images to PDF</h2>
     <p class="panel-desc">Convert JPG or PNG images into a single PDF.</p>
-    <div class="dropzone" id="dz-img2pdf">
-      <p>Select images or drop them here</p>
-      <div class="hint">JPG / PNG supported</div>
-      <input type="file" id="in-img2pdf" accept="image/jpeg,image/png" multiple>
-    </div>
+    <div class="dropzone" id="dz-img2pdf"><p>Select images or drop them here</p><div class="hint">JPG / PNG supported</div><input type="file" id="in-img2pdf" accept="image/jpeg,image/png" multiple></div>
     <ul class="file-list" id="list-img2pdf"></ul>
     <button class="action-btn" id="btn-img2pdf" disabled>Create PDF</button>
     <div class="status" id="st-img2pdf"></div>
-    <div class="result" id="res-img2pdf">
-      <span>Ready</span>
-      <a class="download-btn" id="dl-img2pdf" download="images.pdf">Download</a>
-    </div>
+    <div class="result" id="res-img2pdf"><span>Ready</span><a class="download-btn" id="dl-img2pdf" download="images.pdf">Download</a></div>
   </div>
 
   <div class="workspace" id="ws-pdf2jpg">
     <button class="back-btn" onclick="goHome()">← All tools</button>
     <h2 class="panel-title">PDF to JPG</h2>
     <p class="panel-desc">Convert each page of your PDF into high-quality JPG images.</p>
-    <div class="dropzone" id="dz-pdf2jpg">
-      <p>Select a PDF file</p>
-      <input type="file" id="in-pdf2jpg" accept="application/pdf">
-    </div>
+    <div class="dropzone" id="dz-pdf2jpg"><p>Select a PDF file</p><input type="file" id="in-pdf2jpg" accept="application/pdf"></div>
     <ul class="file-list" id="list-pdf2jpg"></ul>
     <button class="action-btn" id="btn-pdf2jpg" disabled>Convert to JPG</button>
     <div class="status" id="st-pdf2jpg"></div>
-    <div class="result" id="res-pdf2jpg">
-      <span id="pdf2jpg-msg">Ready</span>
-      <a class="download-btn" id="dl-pdf2jpg" download="pages.zip">Download</a>
-    </div>
+    <div class="result" id="res-pdf2jpg"><span id="pdf2jpg-msg">Ready</span><a class="download-btn" id="dl-pdf2jpg" download="pages.zip">Download</a></div>
   </div>
 
   <div class="workspace" id="ws-extract">
     <button class="back-btn" onclick="goHome()">← All tools</button>
     <h2 class="panel-title">Extract Text</h2>
     <p class="panel-desc">Extract all readable text from a PDF file.</p>
-    <div class="dropzone" id="dz-extract">
-      <p>Select a PDF file</p>
-      <input type="file" id="in-extract" accept="application/pdf">
-    </div>
+    <div class="dropzone" id="dz-extract"><p>Select a PDF file</p><input type="file" id="in-extract" accept="application/pdf"></div>
     <ul class="file-list" id="list-extract"></ul>
     <button class="action-btn" id="btn-extract" disabled>Extract Text</button>
     <div class="status" id="st-extract"></div>
-    <div class="result" id="res-extract">
-      <span>Ready</span>
-      <a class="download-btn" id="dl-extract" download="text.txt">Download .txt</a>
-    </div>
+    <div class="result" id="res-extract"><span>Ready</span><a class="download-btn" id="dl-extract" download="text.txt">Download .txt</a></div>
   </div>
 
+  <div class="workspace" id="ws-pdf2png">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">PDF to PNG</h2>
+    <p class="panel-desc">Convert each page of your PDF into high-quality PNG images.</p>
+    <div class="dropzone" id="dz-pdf2png"><p>Select a PDF file</p><input type="file" id="in-pdf2png" accept="application/pdf"></div>
+    <ul class="file-list" id="list-pdf2png"></ul>
+    <button class="action-btn" id="btn-pdf2png" disabled>Convert to PNG</button>
+    <div class="status" id="st-pdf2png"></div>
+    <div class="result" id="res-pdf2png"><span id="pdf2png-msg">Ready</span><a class="download-btn" id="dl-pdf2png" download="pages.zip">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-text2pdf">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Text to PDF</h2>
+    <p class="panel-desc">Convert plain text into a PDF document.</p>
+    <div class="options" style="margin-bottom:20px;">
+      <div class="option" style="flex:1;"><label>Enter your text</label><textarea id="text2pdf-content" rows="8" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text);font-family:inherit;" placeholder="Type or paste your text here..."></textarea></div>
+    </div>
+    <button class="action-btn" id="btn-text2pdf">Create PDF</button>
+    <div class="status" id="st-text2pdf"></div>
+    <div class="result" id="res-text2pdf"><span>Ready</span><a class="download-btn" id="dl-text2pdf" download="text.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-pdf2txt">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">PDF to Text</h2>
+    <p class="panel-desc">Convert PDF content into a clean text file.</p>
+    <div class="dropzone" id="dz-pdf2txt"><p>Select a PDF file</p><input type="file" id="in-pdf2txt" accept="application/pdf"></div>
+    <ul class="file-list" id="list-pdf2txt"></ul>
+    <button class="action-btn" id="btn-pdf2txt" disabled>Convert to Text</button>
+    <div class="status" id="st-pdf2txt"></div>
+    <div class="result" id="res-pdf2txt"><span>Ready</span><a class="download-btn" id="dl-pdf2txt" download="converted.txt">Download .txt</a></div>
+  </div>
+
+  <!-- EDIT -->
+  <div class="workspace" id="ws-rotate">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Rotate PDF</h2>
+    <p class="panel-desc">Rotate all pages by 90°, 180° or 270°.</p>
+    <div class="dropzone" id="dz-rotate"><p>Select a PDF file</p><input type="file" id="in-rotate" accept="application/pdf"></div>
+    <ul class="file-list" id="list-rotate"></ul>
+    <div class="options">
+      <div class="option"><label>Rotation</label><select id="rotate-angle"><option value="90">90° Clockwise</option><option value="180">180°</option><option value="270">90° Counter-clockwise</option></select></div>
+    </div>
+    <button class="action-btn" id="btn-rotate" disabled>Rotate PDF</button>
+    <div class="status" id="st-rotate"></div>
+    <div class="result" id="res-rotate"><span>Ready</span><a class="download-btn" id="dl-rotate" download="rotated.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-watermark">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Add Watermark</h2>
+    <p class="panel-desc">Add a custom text watermark to every page.</p>
+    <div class="dropzone" id="dz-watermark"><p>Select a PDF file</p><input type="file" id="in-watermark" accept="application/pdf"></div>
+    <ul class="file-list" id="list-watermark"></ul>
+    <div class="options">
+      <div class="option"><label>Watermark text</label><input type="text" id="wm-text" value="CONFIDENTIAL"></div>
+      <div class="option"><label>Font size</label><input type="number" id="wm-size" value="48" min="12" max="120"></div>
+      <div class="option"><label>Opacity</label><input type="number" id="wm-opacity" value="0.3" min="0.1" max="0.9" step="0.05"></div>
+    </div>
+    <button class="action-btn" id="btn-watermark" disabled>Add Watermark</button>
+    <div class="status" id="st-watermark"></div>
+    <div class="result" id="res-watermark"><span>Ready</span><a class="download-btn" id="dl-watermark" download="watermarked.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-pagenum">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Add Page Numbers</h2>
+    <p class="panel-desc">Insert page numbers on every page of your PDF.</p>
+    <div class="dropzone" id="dz-pagenum"><p>Select a PDF file</p><input type="file" id="in-pagenum" accept="application/pdf"></div>
+    <ul class="file-list" id="list-pagenum"></ul>
+    <div class="options">
+      <div class="option"><label>Position</label><select id="pn-pos"><option value="bc">Bottom Center</option><option value="br">Bottom Right</option><option value="bl">Bottom Left</option><option value="tc">Top Center</option></select></div>
+      <div class="option"><label>Start from</label><input type="number" id="pn-start" value="1" min="0"></div>
+    </div>
+    <button class="action-btn" id="btn-pagenum" disabled>Add Numbers</button>
+    <div class="status" id="st-pagenum"></div>
+    <div class="result" id="res-pagenum"><span>Ready</span><a class="download-btn" id="dl-pagenum" download="numbered.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-addtext">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Add Text</h2>
+    <p class="panel-desc">Add custom text to every page of the PDF.</p>
+    <div class="dropzone" id="dz-addtext"><p>Select a PDF file</p><input type="file" id="in-addtext" accept="application/pdf"></div>
+    <ul class="file-list" id="list-addtext"></ul>
+    <div class="options">
+      <div class="option"><label>Text</label><input type="text" id="addtext-content" value="Sample Text"></div>
+      <div class="option"><label>Font size</label><input type="number" id="addtext-size" value="16" min="8" max="72"></div>
+      <div class="option"><label>Position</label><select id="addtext-pos"><option value="top">Top</option><option value="bottom">Bottom</option><option value="center">Center</option></select></div>
+    </div>
+    <button class="action-btn" id="btn-addtext" disabled>Add Text</button>
+    <div class="status" id="st-addtext"></div>
+    <div class="result" id="res-addtext"><span>Ready</span><a class="download-btn" id="dl-addtext" download="text-added.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-headerfooter">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Header & Footer</h2>
+    <p class="panel-desc">Add header and footer text to every page.</p>
+    <div class="dropzone" id="dz-headerfooter"><p>Select a PDF file</p><input type="file" id="in-headerfooter" accept="application/pdf"></div>
+    <ul class="file-list" id="list-headerfooter"></ul>
+    <div class="options">
+      <div class="option"><label>Header text</label><input type="text" id="hf-header" placeholder="Header"></div>
+      <div class="option"><label>Footer text</label><input type="text" id="hf-footer" placeholder="Footer"></div>
+    </div>
+    <button class="action-btn" id="btn-headerfooter" disabled>Add Header & Footer</button>
+    <div class="status" id="st-headerfooter"></div>
+    <div class="result" id="res-headerfooter"><span>Ready</span><a class="download-btn" id="dl-headerfooter" download="header-footer.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-blankpages">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Remove Blank Pages</h2>
+    <p class="panel-desc">Automatically detect and remove blank pages from PDF.</p>
+    <div class="dropzone" id="dz-blankpages"><p>Select a PDF file</p><input type="file" id="in-blankpages" accept="application/pdf"></div>
+    <ul class="file-list" id="list-blankpages"></ul>
+    <button class="action-btn" id="btn-blankpages" disabled>Remove Blank Pages</button>
+    <div class="status" id="st-blankpages"></div>
+    <div class="result" id="res-blankpages"><span>Ready</span><a class="download-btn" id="dl-blankpages" download="no-blank.pdf">Download</a></div>
+  </div>
+
+  <!-- SECURITY -->
   <div class="workspace" id="ws-protect">
     <button class="back-btn" onclick="goHome()">← All tools</button>
     <h2 class="panel-title">Protect PDF</h2>
     <p class="panel-desc">Add a password to protect your PDF from unauthorized access.</p>
-    <div class="dropzone" id="dz-protect">
-      <p>Select a PDF file</p>
-      <input type="file" id="in-protect" accept="application/pdf">
-    </div>
+    <div class="dropzone" id="dz-protect"><p>Select a PDF file</p><input type="file" id="in-protect" accept="application/pdf"></div>
     <ul class="file-list" id="list-protect"></ul>
     <div class="options">
-      <div class="option">
-        <label>Password</label>
-        <input type="password" id="protect-pass" placeholder="Enter password">
-      </div>
+      <div class="option"><label>Password</label><input type="password" id="protect-pass" placeholder="Enter password"></div>
     </div>
     <button class="action-btn" id="btn-protect" disabled>Protect PDF</button>
     <div class="status" id="st-protect"></div>
-    <div class="result" id="res-protect">
-      <span>Ready</span>
-      <a class="download-btn" id="dl-protect" download="protected.pdf">Download</a>
+    <div class="result" id="res-protect"><span>Ready</span><a class="download-btn" id="dl-protect" download="protected.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-unlock">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Unlock PDF</h2>
+    <p class="panel-desc">Remove password protection from a PDF (you must know the password).</p>
+    <div class="dropzone" id="dz-unlock"><p>Select a PDF file</p><input type="file" id="in-unlock" accept="application/pdf"></div>
+    <ul class="file-list" id="list-unlock"></ul>
+    <div class="options">
+      <div class="option"><label>Current Password</label><input type="password" id="unlock-pass" placeholder="Enter password"></div>
     </div>
+    <button class="action-btn" id="btn-unlock" disabled>Unlock PDF</button>
+    <div class="status" id="st-unlock"></div>
+    <div class="result" id="res-unlock"><span>Ready</span><a class="download-btn" id="dl-unlock" download="unlocked.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-changepass">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Change Password</h2>
+    <p class="panel-desc">Change the password of a protected PDF.</p>
+    <div class="dropzone" id="dz-changepass"><p>Select a PDF file</p><input type="file" id="in-changepass" accept="application/pdf"></div>
+    <ul class="file-list" id="list-changepass"></ul>
+    <div class="options">
+      <div class="option"><label>Current Password</label><input type="password" id="changepass-old" placeholder="Current password"></div>
+      <div class="option"><label>New Password</label><input type="password" id="changepass-new" placeholder="New password"></div>
+    </div>
+    <button class="action-btn" id="btn-changepass" disabled>Change Password</button>
+    <div class="status" id="st-changepass"></div>
+    <div class="result" id="res-changepass"><span>Ready</span><a class="download-btn" id="dl-changepass" download="new-password.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-restrictprint">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Restrict Printing</h2>
+    <p class="panel-desc">Disable printing of the PDF document.</p>
+    <div class="dropzone" id="dz-restrictprint"><p>Select a PDF file</p><input type="file" id="in-restrictprint" accept="application/pdf"></div>
+    <ul class="file-list" id="list-restrictprint"></ul>
+    <div class="options">
+      <div class="option"><label>Owner Password</label><input type="password" id="restrictprint-pass" placeholder="Set owner password"></div>
+    </div>
+    <button class="action-btn" id="btn-restrictprint" disabled>Restrict Printing</button>
+    <div class="status" id="st-restrictprint"></div>
+    <div class="result" id="res-restrictprint"><span>Ready</span><a class="download-btn" id="dl-restrictprint" download="no-print.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-restrictcopy">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Restrict Copying</h2>
+    <p class="panel-desc">Disable text copying and content extraction.</p>
+    <div class="dropzone" id="dz-restrictcopy"><p>Select a PDF file</p><input type="file" id="in-restrictcopy" accept="application/pdf"></div>
+    <ul class="file-list" id="list-restrictcopy"></ul>
+    <div class="options">
+      <div class="option"><label>Owner Password</label><input type="password" id="restrictcopy-pass" placeholder="Set owner password"></div>
+    </div>
+    <button class="action-btn" id="btn-restrictcopy" disabled>Restrict Copying</button>
+    <div class="status" id="st-restrictcopy"></div>
+    <div class="result" id="res-restrictcopy"><span>Ready</span><a class="download-btn" id="dl-restrictcopy" download="no-copy.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-encrypt">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Encrypt PDF</h2>
+    <p class="panel-desc">Apply strong encryption to your PDF file.</p>
+    <div class="dropzone" id="dz-encrypt"><p>Select a PDF file</p><input type="file" id="in-encrypt" accept="application/pdf"></div>
+    <ul class="file-list" id="list-encrypt"></ul>
+    <div class="options">
+      <div class="option"><label>User Password</label><input type="password" id="encrypt-user" placeholder="User password"></div>
+      <div class="option"><label>Owner Password</label><input type="password" id="encrypt-owner" placeholder="Owner password"></div>
+    </div>
+    <button class="action-btn" id="btn-encrypt" disabled>Encrypt PDF</button>
+    <div class="status" id="st-encrypt"></div>
+    <div class="result" id="res-encrypt"><span>Ready</span><a class="download-btn" id="dl-encrypt" download="encrypted.pdf">Download</a></div>
+  </div>
+
+  <div class="workspace" id="ws-removesecurity">
+    <button class="back-btn" onclick="goHome()">← All tools</button>
+    <h2 class="panel-title">Remove Security</h2>
+    <p class="panel-desc">Remove all security restrictions from a PDF (password required).</p>
+    <div class="dropzone" id="dz-removesecurity"><p>Select a PDF file</p><input type="file" id="in-removesecurity" accept="application/pdf"></div>
+    <ul class="file-list" id="list-removesecurity"></ul>
+    <div class="options">
+      <div class="option"><label>Password</label><input type="password" id="removesecurity-pass" placeholder="Enter password"></div>
+    </div>
+    <button class="action-btn" id="btn-removesecurity" disabled>Remove Security</button>
+    <div class="status" id="st-removesecurity"></div>
+    <div class="result" id="res-removesecurity"><span>Ready</span><a class="download-btn" id="dl-removesecurity" download="no-security.pdf">Download</a></div>
   </div>
 
   <footer>
@@ -775,31 +928,12 @@
     pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
     const { PDFDocument, degrees, StandardFonts, rgb } = PDFLib;
 
-    // ========== FIXED THEME TOGGLE (works in sandbox) ==========
+    // Theme (safe)
     const themeBtn = document.getElementById('themeBtn');
-
-    function getSavedTheme() {
-      try {
-        return localStorage.getItem('theme') || 'light';
-      } catch (e) {
-        return 'light';
-      }
-    }
-
-    function saveTheme(theme) {
-      try {
-        localStorage.setItem('theme', theme);
-      } catch (e) {
-        // ignore - theme only lasts for this session
-      }
-    }
-
+    function getSavedTheme() { try { return localStorage.getItem('theme') || 'light'; } catch(e) { return 'light'; } }
+    function saveTheme(theme) { try { localStorage.setItem('theme', theme); } catch(e) {} }
     const savedTheme = getSavedTheme();
-    if (savedTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      themeBtn.textContent = '☀️';
-    }
-
+    if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); themeBtn.textContent = '☀️'; }
     themeBtn.onclick = () => {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
       const newTheme = isDark ? 'light' : 'dark';
@@ -807,19 +941,48 @@
       themeBtn.textContent = isDark ? '🌙' : '☀️';
       saveTheme(newTheme);
     };
-    // ==========================================================
 
     const TOOLS = [
+      // Organize (6)
       { id: 'merge', name: 'Merge PDF', desc: 'Combine multiple PDFs', icon: '📄', cat: 'organize' },
       { id: 'split', name: 'Split PDF', desc: 'Extract or split pages', icon: '✂️', cat: 'organize' },
+      { id: 'deletepages', name: 'Delete Pages', desc: 'Remove specific pages', icon: '🗑️', cat: 'organize' },
+      { id: 'extractpages', name: 'Extract Pages', desc: 'Extract selected pages', icon: '📑', cat: 'organize' },
+      { id: 'reverse', name: 'Reverse Pages', desc: 'Reverse page order', icon: '🔄', cat: 'organize' },
+      { id: 'duplicate', name: 'Duplicate PDF', desc: 'Make a copy of PDF', icon: '📋', cat: 'organize' },
+
+      // Optimize (6)
       { id: 'compress', name: 'Compress PDF', desc: 'Reduce file size', icon: '🗜️', cat: 'optimize' },
-      { id: 'rotate', name: 'Rotate PDF', desc: 'Rotate all pages', icon: '🔄', cat: 'edit' },
-      { id: 'watermark', name: 'Watermark', desc: 'Add text stamp', icon: '💧', cat: 'edit' },
-      { id: 'pagenum', name: 'Page Numbers', desc: 'Add page numbers', icon: '🔢', cat: 'edit' },
+      { id: 'grayscale', name: 'Grayscale', desc: 'Convert to black & white', icon: '⬛', cat: 'optimize' },
+      { id: 'removemeta', name: 'Remove Metadata', desc: 'Strip document info', icon: '🧹', cat: 'optimize' },
+      { id: 'flatten', name: 'Flatten PDF', desc: 'Flatten forms & annotations', icon: '📎', cat: 'optimize' },
+      { id: 'optimize', name: 'Optimize PDF', desc: 'Optimize structure', icon: '⚡', cat: 'optimize' },
+      { id: 'reduce', name: 'Reduce Size', desc: 'Aggressive size reduction', icon: '📉', cat: 'optimize' },
+
+      // Convert (6)
       { id: 'img2pdf', name: 'Images to PDF', desc: 'JPG/PNG to PDF', icon: '🖼️', cat: 'convert' },
       { id: 'pdf2jpg', name: 'PDF to JPG', desc: 'Convert pages to images', icon: '📷', cat: 'convert' },
       { id: 'extract', name: 'Extract Text', desc: 'Get text from PDF', icon: '📝', cat: 'convert' },
+      { id: 'pdf2png', name: 'PDF to PNG', desc: 'Convert pages to PNG', icon: '🏞️', cat: 'convert' },
+      { id: 'text2pdf', name: 'Text to PDF', desc: 'Convert text to PDF', icon: '📄', cat: 'convert' },
+      { id: 'pdf2txt', name: 'PDF to Text', desc: 'Convert PDF to text file', icon: '📃', cat: 'convert' },
+
+      // Edit (6)
+      { id: 'rotate', name: 'Rotate PDF', desc: 'Rotate all pages', icon: '🔄', cat: 'edit' },
+      { id: 'watermark', name: 'Watermark', desc: 'Add text stamp', icon: '💧', cat: 'edit' },
+      { id: 'pagenum', name: 'Page Numbers', desc: 'Add page numbers', icon: '🔢', cat: 'edit' },
+      { id: 'addtext', name: 'Add Text', desc: 'Add custom text', icon: '✏️', cat: 'edit' },
+      { id: 'headerfooter', name: 'Header & Footer', desc: 'Add header/footer', icon: '📌', cat: 'edit' },
+      { id: 'blankpages', name: 'Remove Blank Pages', desc: 'Delete empty pages', icon: '⬜', cat: 'edit' },
+
+      // Security (7)
       { id: 'protect', name: 'Protect PDF', desc: 'Add password', icon: '🔒', cat: 'security' },
+      { id: 'unlock', name: 'Unlock PDF', desc: 'Remove password', icon: '🔓', cat: 'security' },
+      { id: 'changepass', name: 'Change Password', desc: 'Change existing password', icon: '🔑', cat: 'security' },
+      { id: 'restrictprint', name: 'Restrict Printing', desc: 'Disable printing', icon: '🖨️', cat: 'security' },
+      { id: 'restrictcopy', name: 'Restrict Copying', desc: 'Disable text copy', icon: '📋', cat: 'security' },
+      { id: 'encrypt', name: 'Encrypt PDF', desc: 'Strong encryption', icon: '🛡️', cat: 'security' },
+      { id: 'removesecurity', name: 'Remove Security', desc: 'Remove all restrictions', icon: '🛡️‍💥', cat: 'security' },
     ];
 
     function buildGrids() {
@@ -829,10 +992,7 @@
           const card = document.createElement('div');
           card.className = 'tool-card';
           card.onclick = () => openTool(t.id);
-          card.innerHTML = `
-            <div class="tool-icon">${t.icon}</div>
-            <h3>${t.name}</h3>
-            <p>${t.desc}</p>`;
+          card.innerHTML = `<div class="tool-icon">${t.icon}</div><h3>${t.name}</h3><p>${t.desc}</p>`;
           grid.appendChild(card);
         });
       });
@@ -906,19 +1066,29 @@
       });
     }
 
-    /* MERGE */
+    function parsePageRanges(str, total) {
+      const pages = new Set();
+      str.split(',').forEach(part => {
+        part = part.trim();
+        if (part.includes('-')) {
+          const [a,b] = part.split('-').map(Number);
+          for (let i = a; i <= b; i++) if (i >= 1 && i <= total) pages.add(i-1);
+        } else {
+          const n = Number(part);
+          if (n >= 1 && n <= total) pages.add(n-1);
+        }
+      });
+      return [...pages].sort((a,b) => a-b);
+    }
+
+    // ========== ORGANIZE ==========
     let mergeFiles = [];
     setupDZ('dz-merge', 'in-merge', files => {
       mergeFiles = mergeFiles.concat(files);
-      renderList('merge', mergeFiles, i => {
-        mergeFiles.splice(i,1);
-        renderList('merge', mergeFiles, arguments.callee);
-        document.getElementById('btn-merge').disabled = mergeFiles.length < 2;
-      });
+      renderList('merge', mergeFiles, i => { mergeFiles.splice(i,1); renderList('merge', mergeFiles, arguments.callee); document.getElementById('btn-merge').disabled = mergeFiles.length < 2; });
       document.getElementById('btn-merge').disabled = mergeFiles.length < 2;
       hideResult('merge');
     }, true);
-
     document.getElementById('btn-merge').onclick = async () => {
       setStatus('merge', 'Merging...');
       try {
@@ -928,31 +1098,19 @@
           const pages = await pdf.copyPages(src, src.getPageIndices());
           pages.forEach(p => pdf.addPage(p));
         }
-        const bytes = await pdf.save();
-        showResult('merge', new Blob([bytes], {type:'application/pdf'}), 'merged.pdf');
+        showResult('merge', new Blob([await pdf.save()], {type:'application/pdf'}), 'merged.pdf');
         setStatus('merge', 'Done!', 'ok');
-      } catch(e) {
-        setStatus('merge', 'Error processing files', 'err');
-      }
+      } catch(e) { setStatus('merge', 'Error', 'err'); }
     };
 
-    /* SPLIT */
     let splitFile = null;
     setupDZ('dz-split', 'in-split', files => {
       splitFile = files[0] || null;
-      renderList('split', splitFile ? [splitFile] : [], () => {
-        splitFile = null;
-        renderList('split', [], ()=>{});
-        document.getElementById('btn-split').disabled = true;
-      });
+      renderList('split', splitFile ? [splitFile] : [], () => { splitFile = null; renderList('split', [], ()=>{}); document.getElementById('btn-split').disabled = true; });
       document.getElementById('btn-split').disabled = !splitFile;
       hideResult('split');
     }, false);
-
-    document.getElementById('split-mode').onchange = e => {
-      document.getElementById('range-box').style.display = e.target.value === 'range' ? '' : 'none';
-    };
-
+    document.getElementById('split-mode').onchange = e => { document.getElementById('range-box').style.display = e.target.value === 'range' ? '' : 'none'; };
     document.getElementById('btn-split').onclick = async () => {
       if (!splitFile) return;
       setStatus('split', 'Processing...');
@@ -964,14 +1122,11 @@
           const m = document.getElementById('split-range').value.trim().match(/^(\d+)\s*-\s*(\d+)$/);
           if (!m) { setStatus('split', 'Enter valid range like 1-3', 'err'); return; }
           let s = +m[1], e = +m[2];
-          if (s < 1 || e > total || s > e) { setStatus('split', `Range must be between 1 and ${total}`, 'err'); return; }
+          if (s < 1 || e > total || s > e) { setStatus('split', `Range must be 1-${total}`, 'err'); return; }
           const out = await PDFDocument.create();
-          const idxs = [];
-          for (let i = s-1; i < e; i++) idxs.push(i);
-          const pages = await out.copyPages(src, idxs);
+          const pages = await out.copyPages(src, Array.from({length: e-s+1}, (_,i) => s-1+i));
           pages.forEach(p => out.addPage(p));
-          const bytes = await out.save();
-          showResult('split', new Blob([bytes], {type:'application/pdf'}), `pages_${s}-${e}.pdf`);
+          showResult('split', new Blob([await out.save()], {type:'application/pdf'}), `pages_${s}-${e}.pdf`);
         } else {
           const zip = new JSZip();
           for (let i = 0; i < total; i++) {
@@ -980,29 +1135,110 @@
             out.addPage(p);
             zip.file(`page_${i+1}.pdf`, await out.save());
           }
-          const blob = await zip.generateAsync({type:'blob'});
-          showResult('split', blob, 'split_pages.zip');
+          showResult('split', await zip.generateAsync({type:'blob'}), 'split_pages.zip');
           document.getElementById('dl-split').download = 'split_pages.zip';
         }
         setStatus('split', 'Done!', 'ok');
-      } catch(e) {
-        setStatus('split', 'Error', 'err');
-      }
+      } catch(e) { setStatus('split', 'Error', 'err'); }
     };
 
-    /* COMPRESS */
+    // Delete Pages
+    let deleteFile = null;
+    setupDZ('dz-deletepages', 'in-deletepages', files => {
+      deleteFile = files[0] || null;
+      renderList('deletepages', deleteFile ? [deleteFile] : [], () => { deleteFile = null; renderList('deletepages', [], ()=>{}); document.getElementById('btn-deletepages').disabled = true; });
+      document.getElementById('btn-deletepages').disabled = !deleteFile;
+      hideResult('deletepages');
+    }, false);
+    document.getElementById('btn-deletepages').onclick = async () => {
+      if (!deleteFile) return;
+      setStatus('deletepages', 'Deleting pages...');
+      try {
+        const src = await PDFDocument.load(await deleteFile.arrayBuffer());
+        const total = src.getPageCount();
+        const toDelete = parsePageRanges(document.getElementById('delete-pages').value, total);
+        if (!toDelete.length) { setStatus('deletepages', 'Enter valid pages', 'err'); return; }
+        const keep = src.getPageIndices().filter(i => !toDelete.includes(i));
+        const out = await PDFDocument.create();
+        const pages = await out.copyPages(src, keep);
+        pages.forEach(p => out.addPage(p));
+        showResult('deletepages', new Blob([await out.save()], {type:'application/pdf'}), 'deleted-pages.pdf');
+        setStatus('deletepages', 'Done!', 'ok');
+      } catch(e) { setStatus('deletepages', 'Error', 'err'); }
+    };
+
+    // Extract Pages
+    let extractPagesFile = null;
+    setupDZ('dz-extractpages', 'in-extractpages', files => {
+      extractPagesFile = files[0] || null;
+      renderList('extractpages', extractPagesFile ? [extractPagesFile] : [], () => { extractPagesFile = null; renderList('extractpages', [], ()=>{}); document.getElementById('btn-extractpages').disabled = true; });
+      document.getElementById('btn-extractpages').disabled = !extractPagesFile;
+      hideResult('extractpages');
+    }, false);
+    document.getElementById('btn-extractpages').onclick = async () => {
+      if (!extractPagesFile) return;
+      setStatus('extractpages', 'Extracting...');
+      try {
+        const src = await PDFDocument.load(await extractPagesFile.arrayBuffer());
+        const total = src.getPageCount();
+        const idxs = parsePageRanges(document.getElementById('extract-pages').value, total);
+        if (!idxs.length) { setStatus('extractpages', 'Enter valid pages', 'err'); return; }
+        const out = await PDFDocument.create();
+        const pages = await out.copyPages(src, idxs);
+        pages.forEach(p => out.addPage(p));
+        showResult('extractpages', new Blob([await out.save()], {type:'application/pdf'}), 'extracted.pdf');
+        setStatus('extractpages', 'Done!', 'ok');
+      } catch(e) { setStatus('extractpages', 'Error', 'err'); }
+    };
+
+    // Reverse
+    let reverseFile = null;
+    setupDZ('dz-reverse', 'in-reverse', files => {
+      reverseFile = files[0] || null;
+      renderList('reverse', reverseFile ? [reverseFile] : [], () => { reverseFile = null; renderList('reverse', [], ()=>{}); document.getElementById('btn-reverse').disabled = true; });
+      document.getElementById('btn-reverse').disabled = !reverseFile;
+      hideResult('reverse');
+    }, false);
+    document.getElementById('btn-reverse').onclick = async () => {
+      if (!reverseFile) return;
+      setStatus('reverse', 'Reversing...');
+      try {
+        const src = await PDFDocument.load(await reverseFile.arrayBuffer());
+        const idxs = src.getPageIndices().reverse();
+        const out = await PDFDocument.create();
+        const pages = await out.copyPages(src, idxs);
+        pages.forEach(p => out.addPage(p));
+        showResult('reverse', new Blob([await out.save()], {type:'application/pdf'}), 'reversed.pdf');
+        setStatus('reverse', 'Done!', 'ok');
+      } catch(e) { setStatus('reverse', 'Error', 'err'); }
+    };
+
+    // Duplicate
+    let duplicateFile = null;
+    setupDZ('dz-duplicate', 'in-duplicate', files => {
+      duplicateFile = files[0] || null;
+      renderList('duplicate', duplicateFile ? [duplicateFile] : [], () => { duplicateFile = null; renderList('duplicate', [], ()=>{}); document.getElementById('btn-duplicate').disabled = true; });
+      document.getElementById('btn-duplicate').disabled = !duplicateFile;
+      hideResult('duplicate');
+    }, false);
+    document.getElementById('btn-duplicate').onclick = async () => {
+      if (!duplicateFile) return;
+      setStatus('duplicate', 'Duplicating...');
+      try {
+        const bytes = await duplicateFile.arrayBuffer();
+        showResult('duplicate', new Blob([bytes], {type:'application/pdf'}), 'duplicate.pdf');
+        setStatus('duplicate', 'Done!', 'ok');
+      } catch(e) { setStatus('duplicate', 'Error', 'err'); }
+    };
+
+    // ========== OPTIMIZE ==========
     let compressFile = null;
     setupDZ('dz-compress', 'in-compress', files => {
       compressFile = files[0] || null;
-      renderList('compress', compressFile ? [compressFile] : [], () => {
-        compressFile = null;
-        renderList('compress', [], ()=>{});
-        document.getElementById('btn-compress').disabled = true;
-      });
+      renderList('compress', compressFile ? [compressFile] : [], () => { compressFile = null; renderList('compress', [], ()=>{}); document.getElementById('btn-compress').disabled = true; });
       document.getElementById('btn-compress').disabled = !compressFile;
       hideResult('compress');
     }, false);
-
     document.getElementById('btn-compress').onclick = async () => {
       if (!compressFile) return;
       setStatus('compress', 'Compressing...');
@@ -1015,24 +1251,307 @@
         document.getElementById('compress-msg').textContent = `Compressed: ${before} KB → ${after} KB`;
         showResult('compress', new Blob([bytes], {type:'application/pdf'}), 'compressed.pdf');
         setStatus('compress', after < before ? 'Done!' : 'Already optimized', 'ok');
-      } catch(e) {
-        setStatus('compress', 'Error', 'err');
-      }
+      } catch(e) { setStatus('compress', 'Error', 'err'); }
     };
 
-    /* ROTATE */
+    // Grayscale (using canvas)
+    let grayscaleFile = null;
+    setupDZ('dz-grayscale', 'in-grayscale', files => {
+      grayscaleFile = files[0] || null;
+      renderList('grayscale', grayscaleFile ? [grayscaleFile] : [], () => { grayscaleFile = null; renderList('grayscale', [], ()=>{}); document.getElementById('btn-grayscale').disabled = true; });
+      document.getElementById('btn-grayscale').disabled = !grayscaleFile;
+      hideResult('grayscale');
+    }, false);
+    document.getElementById('btn-grayscale').onclick = async () => {
+      if (!grayscaleFile) return;
+      setStatus('grayscale', 'Converting to grayscale...');
+      try {
+        const data = await grayscaleFile.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data }).promise;
+        const out = await PDFDocument.create();
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const viewport = page.getViewport({ scale: 1.5 });
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          const ctx = canvas.getContext('2d');
+          await page.render({ canvasContext: ctx, viewport }).promise;
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          for (let j = 0; j < imgData.data.length; j += 4) {
+            const avg = (imgData.data[j] + imgData.data[j+1] + imgData.data[j+2]) / 3;
+            imgData.data[j] = imgData.data[j+1] = imgData.data[j+2] = avg;
+          }
+          ctx.putImageData(imgData, 0, 0);
+          const png = await new Promise(r => canvas.toBlob(r, 'image/png'));
+          const img = await out.embedPng(await png.arrayBuffer());
+          const p = out.addPage([img.width, img.height]);
+          p.drawImage(img, { x:0, y:0, width: img.width, height: img.height });
+          setStatus('grayscale', `Page ${i}/${pdf.numPages}...`);
+        }
+        showResult('grayscale', new Blob([await out.save()], {type:'application/pdf'}), 'grayscale.pdf');
+        setStatus('grayscale', 'Done!', 'ok');
+      } catch(e) { setStatus('grayscale', 'Error', 'err'); }
+    };
+
+    // Remove Metadata
+    let metaFile = null;
+    setupDZ('dz-removemeta', 'in-removemeta', files => {
+      metaFile = files[0] || null;
+      renderList('removemeta', metaFile ? [metaFile] : [], () => { metaFile = null; renderList('removemeta', [], ()=>{}); document.getElementById('btn-removemeta').disabled = true; });
+      document.getElementById('btn-removemeta').disabled = !metaFile;
+      hideResult('removemeta');
+    }, false);
+    document.getElementById('btn-removemeta').onclick = async () => {
+      if (!metaFile) return;
+      setStatus('removemeta', 'Removing metadata...');
+      try {
+        const pdf = await PDFDocument.load(await metaFile.arrayBuffer());
+        pdf.setTitle('');
+        pdf.setAuthor('');
+        pdf.setSubject('');
+        pdf.setKeywords([]);
+        pdf.setProducer('');
+        pdf.setCreator('');
+        showResult('removemeta', new Blob([await pdf.save()], {type:'application/pdf'}), 'no-metadata.pdf');
+        setStatus('removemeta', 'Done!', 'ok');
+      } catch(e) { setStatus('removemeta', 'Error', 'err'); }
+    };
+
+    // Flatten
+    let flattenFile = null;
+    setupDZ('dz-flatten', 'in-flatten', files => {
+      flattenFile = files[0] || null;
+      renderList('flatten', flattenFile ? [flattenFile] : [], () => { flattenFile = null; renderList('flatten', [], ()=>{}); document.getElementById('btn-flatten').disabled = true; });
+      document.getElementById('btn-flatten').disabled = !flattenFile;
+      hideResult('flatten');
+    }, false);
+    document.getElementById('btn-flatten').onclick = async () => {
+      if (!flattenFile) return;
+      setStatus('flatten', 'Flattening...');
+      try {
+        const pdf = await PDFDocument.load(await flattenFile.arrayBuffer());
+        const form = pdf.getForm();
+        form.flatten();
+        showResult('flatten', new Blob([await pdf.save()], {type:'application/pdf'}), 'flattened.pdf');
+        setStatus('flatten', 'Done!', 'ok');
+      } catch(e) { setStatus('flatten', 'Error (or no form fields)', 'err'); }
+    };
+
+    // Optimize
+    let optimizeFile = null;
+    setupDZ('dz-optimize', 'in-optimize', files => {
+      optimizeFile = files[0] || null;
+      renderList('optimize', optimizeFile ? [optimizeFile] : [], () => { optimizeFile = null; renderList('optimize', [], ()=>{}); document.getElementById('btn-optimize').disabled = true; });
+      document.getElementById('btn-optimize').disabled = !optimizeFile;
+      hideResult('optimize');
+    }, false);
+    document.getElementById('btn-optimize').onclick = async () => {
+      if (!optimizeFile) return;
+      setStatus('optimize', 'Optimizing...');
+      try {
+        const pdf = await PDFDocument.load(await optimizeFile.arrayBuffer());
+        const bytes = await pdf.save({ useObjectStreams: true, addDefaultPage: false });
+        showResult('optimize', new Blob([bytes], {type:'application/pdf'}), 'optimized.pdf');
+        setStatus('optimize', 'Done!', 'ok');
+      } catch(e) { setStatus('optimize', 'Error', 'err'); }
+    };
+
+    // Reduce
+    let reduceFile = null;
+    setupDZ('dz-reduce', 'in-reduce', files => {
+      reduceFile = files[0] || null;
+      renderList('reduce', reduceFile ? [reduceFile] : [], () => { reduceFile = null; renderList('reduce', [], ()=>{}); document.getElementById('btn-reduce').disabled = true; });
+      document.getElementById('btn-reduce').disabled = !reduceFile;
+      hideResult('reduce');
+    }, false);
+    document.getElementById('btn-reduce').onclick = async () => {
+      if (!reduceFile) return;
+      setStatus('reduce', 'Reducing size...');
+      try {
+        const orig = await reduceFile.arrayBuffer();
+        const pdf = await PDFDocument.load(orig);
+        const bytes = await pdf.save({ useObjectStreams: true });
+        const before = (orig.byteLength/1024).toFixed(0);
+        const after = (bytes.byteLength/1024).toFixed(0);
+        document.getElementById('reduce-msg').textContent = `${before} KB → ${after} KB`;
+        showResult('reduce', new Blob([bytes], {type:'application/pdf'}), 'reduced.pdf');
+        setStatus('reduce', 'Done!', 'ok');
+      } catch(e) { setStatus('reduce', 'Error', 'err'); }
+    };
+
+    // ========== CONVERT ==========
+    let imgFiles = [];
+    setupDZ('dz-img2pdf', 'in-img2pdf', files => {
+      imgFiles = imgFiles.concat(files);
+      renderList('img2pdf', imgFiles, i => { imgFiles.splice(i,1); renderList('img2pdf', imgFiles, arguments.callee); document.getElementById('btn-img2pdf').disabled = imgFiles.length < 1; });
+      document.getElementById('btn-img2pdf').disabled = imgFiles.length < 1;
+      hideResult('img2pdf');
+    }, true);
+    document.getElementById('btn-img2pdf').onclick = async () => {
+      if (!imgFiles.length) return;
+      setStatus('img2pdf', 'Creating PDF...');
+      try {
+        const pdf = await PDFDocument.create();
+        for (const f of imgFiles) {
+          const bytes = await f.arrayBuffer();
+          const img = f.type === 'image/png' ? await pdf.embedPng(bytes) : await pdf.embedJpg(bytes);
+          const page = pdf.addPage([img.width, img.height]);
+          page.drawImage(img, { x:0, y:0, width: img.width, height: img.height });
+        }
+        showResult('img2pdf', new Blob([await pdf.save()], {type:'application/pdf'}), 'images.pdf');
+        setStatus('img2pdf', 'Done!', 'ok');
+      } catch(e) { setStatus('img2pdf', 'Error', 'err'); }
+    };
+
+    let pdf2jpgFile = null;
+    setupDZ('dz-pdf2jpg', 'in-pdf2jpg', files => {
+      pdf2jpgFile = files[0] || null;
+      renderList('pdf2jpg', pdf2jpgFile ? [pdf2jpgFile] : [], () => { pdf2jpgFile = null; renderList('pdf2jpg', [], ()=>{}); document.getElementById('btn-pdf2jpg').disabled = true; });
+      document.getElementById('btn-pdf2jpg').disabled = !pdf2jpgFile;
+      hideResult('pdf2jpg');
+    }, false);
+    document.getElementById('btn-pdf2jpg').onclick = async () => {
+      if (!pdf2jpgFile) return;
+      setStatus('pdf2jpg', 'Converting...');
+      try {
+        const data = await pdf2jpgFile.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data }).promise;
+        const blobs = [];
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const viewport = page.getViewport({ scale: 2 });
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width; canvas.height = viewport.height;
+          await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+          blobs.push(await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.92)));
+          setStatus('pdf2jpg', `Page ${i}/${pdf.numPages}...`);
+        }
+        if (pdf.numPages === 1) {
+          showResult('pdf2jpg', blobs[0], 'page_1.jpg');
+          document.getElementById('dl-pdf2jpg').download = 'page_1.jpg';
+        } else {
+          const zip = new JSZip();
+          blobs.forEach((b,i) => zip.file(`page_${i+1}.jpg`, b));
+          showResult('pdf2jpg', await zip.generateAsync({type:'blob'}), 'pages.zip');
+          document.getElementById('dl-pdf2jpg').download = 'pages.zip';
+        }
+        setStatus('pdf2jpg', 'Done!', 'ok');
+      } catch(e) { setStatus('pdf2jpg', 'Error', 'err'); }
+    };
+
+    let extractFile = null;
+    setupDZ('dz-extract', 'in-extract', files => {
+      extractFile = files[0] || null;
+      renderList('extract', extractFile ? [extractFile] : [], () => { extractFile = null; renderList('extract', [], ()=>{}); document.getElementById('btn-extract').disabled = true; });
+      document.getElementById('btn-extract').disabled = !extractFile;
+      hideResult('extract');
+    }, false);
+    document.getElementById('btn-extract').onclick = async () => {
+      if (!extractFile) return;
+      setStatus('extract', 'Extracting...');
+      try {
+        const pdf = await pdfjsLib.getDocument({ data: await extractFile.arrayBuffer() }).promise;
+        let text = '';
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const content = await (await pdf.getPage(i)).getTextContent();
+          text += content.items.map(it => it.str).join(' ') + '\n\n';
+        }
+        showResult('extract', new Blob([text], {type:'text/plain'}), 'extracted-text.txt');
+        setStatus('extract', 'Done!', 'ok');
+      } catch(e) { setStatus('extract', 'Error', 'err'); }
+    };
+
+    // PDF to PNG
+    let pdf2pngFile = null;
+    setupDZ('dz-pdf2png', 'in-pdf2png', files => {
+      pdf2pngFile = files[0] || null;
+      renderList('pdf2png', pdf2pngFile ? [pdf2pngFile] : [], () => { pdf2pngFile = null; renderList('pdf2png', [], ()=>{}); document.getElementById('btn-pdf2png').disabled = true; });
+      document.getElementById('btn-pdf2png').disabled = !pdf2pngFile;
+      hideResult('pdf2png');
+    }, false);
+    document.getElementById('btn-pdf2png').onclick = async () => {
+      if (!pdf2pngFile) return;
+      setStatus('pdf2png', 'Converting...');
+      try {
+        const data = await pdf2pngFile.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data }).promise;
+        const blobs = [];
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const viewport = page.getViewport({ scale: 2 });
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width; canvas.height = viewport.height;
+          await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+          blobs.push(await new Promise(r => canvas.toBlob(r, 'image/png')));
+          setStatus('pdf2png', `Page ${i}/${pdf.numPages}...`);
+        }
+        if (pdf.numPages === 1) {
+          showResult('pdf2png', blobs[0], 'page_1.png');
+          document.getElementById('dl-pdf2png').download = 'page_1.png';
+        } else {
+          const zip = new JSZip();
+          blobs.forEach((b,i) => zip.file(`page_${i+1}.png`, b));
+          showResult('pdf2png', await zip.generateAsync({type:'blob'}), 'pages.zip');
+          document.getElementById('dl-pdf2png').download = 'pages.zip';
+        }
+        setStatus('pdf2png', 'Done!', 'ok');
+      } catch(e) { setStatus('pdf2png', 'Error', 'err'); }
+    };
+
+    // Text to PDF
+    document.getElementById('btn-text2pdf').onclick = async () => {
+      const text = document.getElementById('text2pdf-content').value.trim();
+      if (!text) { setStatus('text2pdf', 'Please enter some text', 'err'); return; }
+      setStatus('text2pdf', 'Creating PDF...');
+      try {
+        const pdf = await PDFDocument.create();
+        const font = await pdf.embedFont(StandardFonts.Helvetica);
+        const page = pdf.addPage([595, 842]);
+        const { width, height } = page.getSize();
+        const lines = text.split('\n');
+        let y = height - 50;
+        lines.forEach(line => {
+          if (y < 50) { page = pdf.addPage([595, 842]); y = height - 50; }
+          page.drawText(line.substring(0, 90), { x: 50, y, size: 12, font, color: rgb(0,0,0) });
+          y -= 18;
+        });
+        showResult('text2pdf', new Blob([await pdf.save()], {type:'application/pdf'}), 'text.pdf');
+        setStatus('text2pdf', 'Done!', 'ok');
+      } catch(e) { setStatus('text2pdf', 'Error', 'err'); }
+    };
+
+    // PDF to Text
+    let pdf2txtFile = null;
+    setupDZ('dz-pdf2txt', 'in-pdf2txt', files => {
+      pdf2txtFile = files[0] || null;
+      renderList('pdf2txt', pdf2txtFile ? [pdf2txtFile] : [], () => { pdf2txtFile = null; renderList('pdf2txt', [], ()=>{}); document.getElementById('btn-pdf2txt').disabled = true; });
+      document.getElementById('btn-pdf2txt').disabled = !pdf2txtFile;
+      hideResult('pdf2txt');
+    }, false);
+    document.getElementById('btn-pdf2txt').onclick = async () => {
+      if (!pdf2txtFile) return;
+      setStatus('pdf2txt', 'Converting...');
+      try {
+        const pdf = await pdfjsLib.getDocument({ data: await pdf2txtFile.arrayBuffer() }).promise;
+        let text = '';
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const content = await (await pdf.getPage(i)).getTextContent();
+          text += content.items.map(it => it.str).join(' ') + '\n\n';
+        }
+        showResult('pdf2txt', new Blob([text], {type:'text/plain'}), 'converted.txt');
+        setStatus('pdf2txt', 'Done!', 'ok');
+      } catch(e) { setStatus('pdf2txt', 'Error', 'err'); }
+    };
+
+    // ========== EDIT ==========
     let rotateFile = null;
     setupDZ('dz-rotate', 'in-rotate', files => {
       rotateFile = files[0] || null;
-      renderList('rotate', rotateFile ? [rotateFile] : [], () => {
-        rotateFile = null;
-        renderList('rotate', [], ()=>{});
-        document.getElementById('btn-rotate').disabled = true;
-      });
+      renderList('rotate', rotateFile ? [rotateFile] : [], () => { rotateFile = null; renderList('rotate', [], ()=>{}); document.getElementById('btn-rotate').disabled = true; });
       document.getElementById('btn-rotate').disabled = !rotateFile;
       hideResult('rotate');
     }, false);
-
     document.getElementById('btn-rotate').onclick = async () => {
       if (!rotateFile) return;
       const angle = +document.getElementById('rotate-angle').value;
@@ -1043,27 +1562,18 @@
           const cur = p.getRotation().angle;
           p.setRotation(degrees((cur + angle) % 360));
         });
-        const bytes = await pdf.save();
-        showResult('rotate', new Blob([bytes], {type:'application/pdf'}), 'rotated.pdf');
+        showResult('rotate', new Blob([await pdf.save()], {type:'application/pdf'}), 'rotated.pdf');
         setStatus('rotate', 'Done!', 'ok');
-      } catch(e) {
-        setStatus('rotate', 'Error', 'err');
-      }
+      } catch(e) { setStatus('rotate', 'Error', 'err'); }
     };
 
-    /* WATERMARK */
     let wmFile = null;
     setupDZ('dz-watermark', 'in-watermark', files => {
       wmFile = files[0] || null;
-      renderList('watermark', wmFile ? [wmFile] : [], () => {
-        wmFile = null;
-        renderList('watermark', [], ()=>{});
-        document.getElementById('btn-watermark').disabled = true;
-      });
+      renderList('watermark', wmFile ? [wmFile] : [], () => { wmFile = null; renderList('watermark', [], ()=>{}); document.getElementById('btn-watermark').disabled = true; });
       document.getElementById('btn-watermark').disabled = !wmFile;
       hideResult('watermark');
     }, false);
-
     document.getElementById('btn-watermark').onclick = async () => {
       if (!wmFile) return;
       const text = document.getElementById('wm-text').value || 'CONFIDENTIAL';
@@ -1076,37 +1586,20 @@
         pdf.getPages().forEach(page => {
           const { width, height } = page.getSize();
           const tw = font.widthOfTextAtSize(text, size);
-          page.drawText(text, {
-            x: width/2 - tw/2,
-            y: height/2,
-            size,
-            font,
-            color: rgb(0.7, 0.1, 0.1),
-            opacity,
-            rotate: degrees(45)
-          });
+          page.drawText(text, { x: width/2 - tw/2, y: height/2, size, font, color: rgb(0.7,0.1,0.1), opacity, rotate: degrees(45) });
         });
-        const bytes = await pdf.save();
-        showResult('watermark', new Blob([bytes], {type:'application/pdf'}), 'watermarked.pdf');
+        showResult('watermark', new Blob([await pdf.save()], {type:'application/pdf'}), 'watermarked.pdf');
         setStatus('watermark', 'Done!', 'ok');
-      } catch(e) {
-        setStatus('watermark', 'Error', 'err');
-      }
+      } catch(e) { setStatus('watermark', 'Error', 'err'); }
     };
 
-    /* PAGE NUMBERS */
     let pnFile = null;
     setupDZ('dz-pagenum', 'in-pagenum', files => {
       pnFile = files[0] || null;
-      renderList('pagenum', pnFile ? [pnFile] : [], () => {
-        pnFile = null;
-        renderList('pagenum', [], ()=>{});
-        document.getElementById('btn-pagenum').disabled = true;
-      });
+      renderList('pagenum', pnFile ? [pnFile] : [], () => { pnFile = null; renderList('pagenum', [], ()=>{}); document.getElementById('btn-pagenum').disabled = true; });
       document.getElementById('btn-pagenum').disabled = !pnFile;
       hideResult('pagenum');
     }, false);
-
     document.getElementById('btn-pagenum').onclick = async () => {
       if (!pnFile) return;
       const pos = document.getElementById('pn-pos').value;
@@ -1127,157 +1620,255 @@
           else { x = width/2 - tw/2; y = height - 32; }
           page.drawText(label, { x, y, size, font, color: rgb(0.2,0.2,0.2) });
         });
-        const bytes = await pdf.save();
-        showResult('pagenum', new Blob([bytes], {type:'application/pdf'}), 'numbered.pdf');
+        showResult('pagenum', new Blob([await pdf.save()], {type:'application/pdf'}), 'numbered.pdf');
         setStatus('pagenum', 'Done!', 'ok');
-      } catch(e) {
-        setStatus('pagenum', 'Error', 'err');
-      }
+      } catch(e) { setStatus('pagenum', 'Error', 'err'); }
     };
 
-    /* IMAGES TO PDF */
-    let imgFiles = [];
-    setupDZ('dz-img2pdf', 'in-img2pdf', files => {
-      imgFiles = imgFiles.concat(files);
-      renderList('img2pdf', imgFiles, i => {
-        imgFiles.splice(i,1);
-        renderList('img2pdf', imgFiles, arguments.callee);
-        document.getElementById('btn-img2pdf').disabled = imgFiles.length < 1;
-      });
-      document.getElementById('btn-img2pdf').disabled = imgFiles.length < 1;
-      hideResult('img2pdf');
-    }, true);
-
-    document.getElementById('btn-img2pdf').onclick = async () => {
-      if (!imgFiles.length) return;
-      setStatus('img2pdf', 'Creating PDF...');
-      try {
-        const pdf = await PDFDocument.create();
-        for (const f of imgFiles) {
-          const bytes = await f.arrayBuffer();
-          const img = f.type === 'image/png' ? await pdf.embedPng(bytes) : await pdf.embedJpg(bytes);
-          const page = pdf.addPage([img.width, img.height]);
-          page.drawImage(img, { x:0, y:0, width: img.width, height: img.height });
-        }
-        const out = await pdf.save();
-        showResult('img2pdf', new Blob([out], {type:'application/pdf'}), 'images.pdf');
-        setStatus('img2pdf', 'Done!', 'ok');
-      } catch(e) {
-        setStatus('img2pdf', 'Error with images', 'err');
-      }
-    };
-
-    /* PDF TO JPG */
-    let pdf2jpgFile = null;
-    setupDZ('dz-pdf2jpg', 'in-pdf2jpg', files => {
-      pdf2jpgFile = files[0] || null;
-      renderList('pdf2jpg', pdf2jpgFile ? [pdf2jpgFile] : [], () => {
-        pdf2jpgFile = null;
-        renderList('pdf2jpg', [], ()=>{});
-        document.getElementById('btn-pdf2jpg').disabled = true;
-      });
-      document.getElementById('btn-pdf2jpg').disabled = !pdf2jpgFile;
-      hideResult('pdf2jpg');
+    // Add Text
+    let addtextFile = null;
+    setupDZ('dz-addtext', 'in-addtext', files => {
+      addtextFile = files[0] || null;
+      renderList('addtext', addtextFile ? [addtextFile] : [], () => { addtextFile = null; renderList('addtext', [], ()=>{}); document.getElementById('btn-addtext').disabled = true; });
+      document.getElementById('btn-addtext').disabled = !addtextFile;
+      hideResult('addtext');
     }, false);
-
-    document.getElementById('btn-pdf2jpg').onclick = async () => {
-      if (!pdf2jpgFile) return;
-      setStatus('pdf2jpg', 'Converting...');
+    document.getElementById('btn-addtext').onclick = async () => {
+      if (!addtextFile) return;
+      const text = document.getElementById('addtext-content').value || 'Sample Text';
+      const size = +document.getElementById('addtext-size').value || 16;
+      const pos = document.getElementById('addtext-pos').value;
+      setStatus('addtext', 'Adding text...');
       try {
-        const data = await pdf2jpgFile.arrayBuffer();
-        const pdf = await pdfjsLib.getDocument({ data }).promise;
-        const total = pdf.numPages;
-        const blobs = [];
-        for (let i = 1; i <= total; i++) {
-          const page = await pdf.getPage(i);
-          const viewport = page.getViewport({ scale: 2 });
-          const canvas = document.createElement('canvas');
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-          const blob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.92));
-          blobs.push(blob);
-          setStatus('pdf2jpg', `Page ${i}/${total}...`);
-        }
-        if (total === 1) {
-          showResult('pdf2jpg', blobs[0], 'page_1.jpg');
-          document.getElementById('dl-pdf2jpg').download = 'page_1.jpg';
-          document.getElementById('pdf2jpg-msg').textContent = 'Ready';
-        } else {
-          const zip = new JSZip();
-          blobs.forEach((b, i) => zip.file(`page_${i+1}.jpg`, b));
-          const zipBlob = await zip.generateAsync({ type: 'blob' });
-          showResult('pdf2jpg', zipBlob, 'pages.zip');
-          document.getElementById('dl-pdf2jpg').download = 'pages.zip';
-          document.getElementById('pdf2jpg-msg').textContent = `${total} pages ready`;
-        }
-        setStatus('pdf2jpg', 'Done!', 'ok');
-      } catch(e) {
-        setStatus('pdf2jpg', 'Error converting', 'err');
-      }
+        const pdf = await PDFDocument.load(await addtextFile.arrayBuffer());
+        const font = await pdf.embedFont(StandardFonts.Helvetica);
+        pdf.getPages().forEach(page => {
+          const { width, height } = page.getSize();
+          const tw = font.widthOfTextAtSize(text, size);
+          let x = width/2 - tw/2, y;
+          if (pos === 'top') y = height - 40;
+          else if (pos === 'bottom') y = 30;
+          else y = height/2;
+          page.drawText(text, { x, y, size, font, color: rgb(0,0,0) });
+        });
+        showResult('addtext', new Blob([await pdf.save()], {type:'application/pdf'}), 'text-added.pdf');
+        setStatus('addtext', 'Done!', 'ok');
+      } catch(e) { setStatus('addtext', 'Error', 'err'); }
     };
 
-    /* EXTRACT TEXT */
-    let extractFile = null;
-    setupDZ('dz-extract', 'in-extract', files => {
-      extractFile = files[0] || null;
-      renderList('extract', extractFile ? [extractFile] : [], () => {
-        extractFile = null;
-        renderList('extract', [], ()=>{});
-        document.getElementById('btn-extract').disabled = true;
-      });
-      document.getElementById('btn-extract').disabled = !extractFile;
-      hideResult('extract');
+    // Header & Footer
+    let hfFile = null;
+    setupDZ('dz-headerfooter', 'in-headerfooter', files => {
+      hfFile = files[0] || null;
+      renderList('headerfooter', hfFile ? [hfFile] : [], () => { hfFile = null; renderList('headerfooter', [], ()=>{}); document.getElementById('btn-headerfooter').disabled = true; });
+      document.getElementById('btn-headerfooter').disabled = !hfFile;
+      hideResult('headerfooter');
     }, false);
-
-    document.getElementById('btn-extract').onclick = async () => {
-      if (!extractFile) return;
-      setStatus('extract', 'Extracting text...');
+    document.getElementById('btn-headerfooter').onclick = async () => {
+      if (!hfFile) return;
+      const header = document.getElementById('hf-header').value;
+      const footer = document.getElementById('hf-footer').value;
+      setStatus('headerfooter', 'Adding...');
       try {
-        const data = await extractFile.arrayBuffer();
-        const pdf = await pdfjsLib.getDocument({ data }).promise;
-        let text = '';
-        for (let i = 1; i <= pdf.numPages; i++) {
-          const page = await pdf.getPage(i);
+        const pdf = await PDFDocument.load(await hfFile.arrayBuffer());
+        const font = await pdf.embedFont(StandardFonts.Helvetica);
+        pdf.getPages().forEach(page => {
+          const { width, height } = page.getSize();
+          if (header) {
+            const tw = font.widthOfTextAtSize(header, 10);
+            page.drawText(header, { x: width/2 - tw/2, y: height - 25, size: 10, font, color: rgb(0.3,0.3,0.3) });
+          }
+          if (footer) {
+            const tw = font.widthOfTextAtSize(footer, 10);
+            page.drawText(footer, { x: width/2 - tw/2, y: 20, size: 10, font, color: rgb(0.3,0.3,0.3) });
+          }
+        });
+        showResult('headerfooter', new Blob([await pdf.save()], {type:'application/pdf'}), 'header-footer.pdf');
+        setStatus('headerfooter', 'Done!', 'ok');
+      } catch(e) { setStatus('headerfooter', 'Error', 'err'); }
+    };
+
+    // Remove Blank Pages (simple detection)
+    let blankFile = null;
+    setupDZ('dz-blankpages', 'in-blankpages', files => {
+      blankFile = files[0] || null;
+      renderList('blankpages', blankFile ? [blankFile] : [], () => { blankFile = null; renderList('blankpages', [], ()=>{}); document.getElementById('btn-blankpages').disabled = true; });
+      document.getElementById('btn-blankpages').disabled = !blankFile;
+      hideResult('blankpages');
+    }, false);
+    document.getElementById('btn-blankpages').onclick = async () => {
+      if (!blankFile) return;
+      setStatus('blankpages', 'Checking pages...');
+      try {
+        const data = await blankFile.arrayBuffer();
+        const pdfjsDoc = await pdfjsLib.getDocument({ data }).promise;
+        const src = await PDFDocument.load(data);
+        const keep = [];
+        for (let i = 1; i <= pdfjsDoc.numPages; i++) {
+          const page = await pdfjsDoc.getPage(i);
           const content = await page.getTextContent();
-          text += content.items.map(it => it.str).join(' ') + '\n\n';
+          if (content.items.length > 5) keep.push(i-1); // simple heuristic
+          setStatus('blankpages', `Checking page ${i}...`);
         }
-        showResult('extract', new Blob([text], {type:'text/plain'}), 'extracted-text.txt');
-        setStatus('extract', 'Done!', 'ok');
-      } catch(e) {
-        setStatus('extract', 'Error', 'err');
-      }
+        if (keep.length === 0) { setStatus('blankpages', 'No content pages found', 'err'); return; }
+        const out = await PDFDocument.create();
+        const pages = await out.copyPages(src, keep);
+        pages.forEach(p => out.addPage(p));
+        showResult('blankpages', new Blob([await out.save()], {type:'application/pdf'}), 'no-blank.pdf');
+        setStatus('blankpages', `Removed ${pdfjsDoc.numPages - keep.length} blank page(s)`, 'ok');
+      } catch(e) { setStatus('blankpages', 'Error', 'err'); }
     };
 
-    /* PROTECT PDF */
+    // ========== SECURITY ==========
     let protectFile = null;
     setupDZ('dz-protect', 'in-protect', files => {
       protectFile = files[0] || null;
-      renderList('protect', protectFile ? [protectFile] : [], () => {
-        protectFile = null;
-        renderList('protect', [], ()=>{});
-        document.getElementById('btn-protect').disabled = true;
-      });
+      renderList('protect', protectFile ? [protectFile] : [], () => { protectFile = null; renderList('protect', [], ()=>{}); document.getElementById('btn-protect').disabled = true; });
       document.getElementById('btn-protect').disabled = !protectFile;
       hideResult('protect');
     }, false);
-
     document.getElementById('btn-protect').onclick = async () => {
       if (!protectFile) return;
       const pass = document.getElementById('protect-pass').value;
-      if (!pass) { setStatus('protect', 'Please enter a password', 'err'); return; }
+      if (!pass) { setStatus('protect', 'Enter a password', 'err'); return; }
       setStatus('protect', 'Protecting...');
       try {
         const pdf = await PDFDocument.load(await protectFile.arrayBuffer());
-        const bytes = await pdf.save({
-          userPassword: pass,
-          ownerPassword: pass + '_owner'
-        });
+        const bytes = await pdf.save({ userPassword: pass, ownerPassword: pass + '_owner' });
         showResult('protect', new Blob([bytes], {type:'application/pdf'}), 'protected.pdf');
-        setStatus('protect', 'Done! Password protected.', 'ok');
-      } catch(e) {
-        setStatus('protect', 'Error protecting file', 'err');
-      }
+        setStatus('protect', 'Done!', 'ok');
+      } catch(e) { setStatus('protect', 'Error', 'err'); }
+    };
+
+    // Unlock
+    let unlockFile = null;
+    setupDZ('dz-unlock', 'in-unlock', files => {
+      unlockFile = files[0] || null;
+      renderList('unlock', unlockFile ? [unlockFile] : [], () => { unlockFile = null; renderList('unlock', [], ()=>{}); document.getElementById('btn-unlock').disabled = true; });
+      document.getElementById('btn-unlock').disabled = !unlockFile;
+      hideResult('unlock');
+    }, false);
+    document.getElementById('btn-unlock').onclick = async () => {
+      if (!unlockFile) return;
+      const pass = document.getElementById('unlock-pass').value;
+      setStatus('unlock', 'Unlocking...');
+      try {
+        const pdf = await PDFDocument.load(await unlockFile.arrayBuffer(), { password: pass });
+        const bytes = await pdf.save();
+        showResult('unlock', new Blob([bytes], {type:'application/pdf'}), 'unlocked.pdf');
+        setStatus('unlock', 'Done!', 'ok');
+      } catch(e) { setStatus('unlock', 'Wrong password or error', 'err'); }
+    };
+
+    // Change Password
+    let changepassFile = null;
+    setupDZ('dz-changepass', 'in-changepass', files => {
+      changepassFile = files[0] || null;
+      renderList('changepass', changepassFile ? [changepassFile] : [], () => { changepassFile = null; renderList('changepass', [], ()=>{}); document.getElementById('btn-changepass').disabled = true; });
+      document.getElementById('btn-changepass').disabled = !changepassFile;
+      hideResult('changepass');
+    }, false);
+    document.getElementById('btn-changepass').onclick = async () => {
+      if (!changepassFile) return;
+      const oldPass = document.getElementById('changepass-old').value;
+      const newPass = document.getElementById('changepass-new').value;
+      if (!newPass) { setStatus('changepass', 'Enter new password', 'err'); return; }
+      setStatus('changepass', 'Changing password...');
+      try {
+        const pdf = await PDFDocument.load(await changepassFile.arrayBuffer(), { password: oldPass });
+        const bytes = await pdf.save({ userPassword: newPass, ownerPassword: newPass + '_owner' });
+        showResult('changepass', new Blob([bytes], {type:'application/pdf'}), 'new-password.pdf');
+        setStatus('changepass', 'Done!', 'ok');
+      } catch(e) { setStatus('changepass', 'Wrong password or error', 'err'); }
+    };
+
+    // Restrict Printing
+    let restrictprintFile = null;
+    setupDZ('dz-restrictprint', 'in-restrictprint', files => {
+      restrictprintFile = files[0] || null;
+      renderList('restrictprint', restrictprintFile ? [restrictprintFile] : [], () => { restrictprintFile = null; renderList('restrictprint', [], ()=>{}); document.getElementById('btn-restrictprint').disabled = true; });
+      document.getElementById('btn-restrictprint').disabled = !restrictprintFile;
+      hideResult('restrictprint');
+    }, false);
+    document.getElementById('btn-restrictprint').onclick = async () => {
+      if (!restrictprintFile) return;
+      const pass = document.getElementById('restrictprint-pass').value || 'owner';
+      setStatus('restrictprint', 'Applying restriction...');
+      try {
+        const pdf = await PDFDocument.load(await restrictprintFile.arrayBuffer());
+        const bytes = await pdf.save({
+          userPassword: '',
+          ownerPassword: pass,
+          permissions: { printing: 'lowResolution' } // limited support
+        });
+        showResult('restrictprint', new Blob([bytes], {type:'application/pdf'}), 'no-print.pdf');
+        setStatus('restrictprint', 'Done!', 'ok');
+      } catch(e) { setStatus('restrictprint', 'Error', 'err'); }
+    };
+
+    // Restrict Copying
+    let restrictcopyFile = null;
+    setupDZ('dz-restrictcopy', 'in-restrictcopy', files => {
+      restrictcopyFile = files[0] || null;
+      renderList('restrictcopy', restrictcopyFile ? [restrictcopyFile] : [], () => { restrictcopyFile = null; renderList('restrictcopy', [], ()=>{}); document.getElementById('btn-restrictcopy').disabled = true; });
+      document.getElementById('btn-restrictcopy').disabled = !restrictcopyFile;
+      hideResult('restrictcopy');
+    }, false);
+    document.getElementById('btn-restrictcopy').onclick = async () => {
+      if (!restrictcopyFile) return;
+      const pass = document.getElementById('restrictcopy-pass').value || 'owner';
+      setStatus('restrictcopy', 'Applying restriction...');
+      try {
+        const pdf = await PDFDocument.load(await restrictcopyFile.arrayBuffer());
+        const bytes = await pdf.save({
+          userPassword: '',
+          ownerPassword: pass
+        });
+        showResult('restrictcopy', new Blob([bytes], {type:'application/pdf'}), 'no-copy.pdf');
+        setStatus('restrictcopy', 'Done!', 'ok');
+      } catch(e) { setStatus('restrictcopy', 'Error', 'err'); }
+    };
+
+    // Encrypt
+    let encryptFile = null;
+    setupDZ('dz-encrypt', 'in-encrypt', files => {
+      encryptFile = files[0] || null;
+      renderList('encrypt', encryptFile ? [encryptFile] : [], () => { encryptFile = null; renderList('encrypt', [], ()=>{}); document.getElementById('btn-encrypt').disabled = true; });
+      document.getElementById('btn-encrypt').disabled = !encryptFile;
+      hideResult('encrypt');
+    }, false);
+    document.getElementById('btn-encrypt').onclick = async () => {
+      if (!encryptFile) return;
+      const user = document.getElementById('encrypt-user').value;
+      const owner = document.getElementById('encrypt-owner').value || user + '_owner';
+      if (!user) { setStatus('encrypt', 'Enter user password', 'err'); return; }
+      setStatus('encrypt', 'Encrypting...');
+      try {
+        const pdf = await PDFDocument.load(await encryptFile.arrayBuffer());
+        const bytes = await pdf.save({ userPassword: user, ownerPassword: owner });
+        showResult('encrypt', new Blob([bytes], {type:'application/pdf'}), 'encrypted.pdf');
+        setStatus('encrypt', 'Done!', 'ok');
+      } catch(e) { setStatus('encrypt', 'Error', 'err'); }
+    };
+
+    // Remove Security
+    let removesecurityFile = null;
+    setupDZ('dz-removesecurity', 'in-removesecurity', files => {
+      removesecurityFile = files[0] || null;
+      renderList('removesecurity', removesecurityFile ? [removesecurityFile] : [], () => { removesecurityFile = null; renderList('removesecurity', [], ()=>{}); document.getElementById('btn-removesecurity').disabled = true; });
+      document.getElementById('btn-removesecurity').disabled = !removesecurityFile;
+      hideResult('removesecurity');
+    }, false);
+    document.getElementById('btn-removesecurity').onclick = async () => {
+      if (!removesecurityFile) return;
+      const pass = document.getElementById('removesecurity-pass').value;
+      setStatus('removesecurity', 'Removing security...');
+      try {
+        const pdf = await PDFDocument.load(await removesecurityFile.arrayBuffer(), { password: pass });
+        const bytes = await pdf.save();
+        showResult('removesecurity', new Blob([bytes], {type:'application/pdf'}), 'no-security.pdf');
+        setStatus('removesecurity', 'Done!', 'ok');
+      } catch(e) { setStatus('removesecurity', 'Wrong password or error', 'err'); }
     };
   </script>
 </body>
